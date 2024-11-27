@@ -1,6 +1,9 @@
 import cv2
 import mediapipe as mp
 import numpy as np
+from PIL import ImageFont, Image, ImageDraw
+# import requests
+# from io import BytesIO
 
 def cut_out(image_path, output_path):
     mp_selfie_segmentation = mp.solutions.selfie_segmentation
@@ -25,9 +28,16 @@ def cut_out(image_path, output_path):
 def add_text(image_path, output_path, text, position, font_scale=1, color=(255, 255, 255), thickness=2):
     image = cv2.imread(image_path)
     # Define the font
-    font = cv2.FONT_HERSHEY_SIMPLEX
-    cv2.putText(image, text, position, font, font_scale, color, thickness, lineType=cv2.LINE_AA)
-    cv2.imwrite(output_path, image)
+    font = ImageFont.truetype("fonts/Futura-Book.ttf", font_scale) 
+    pillow_img = Image.fromarray(cv2.cvtColor(image, cv2.COLOR_BGR2RGB)) 
+    # font = cv2.FONT_HERSHEY_COMPLEX
+    # Add the text to the image
+    draw = ImageDraw.Draw(pillow_img)
+    draw.text(position, text, font=font, fill=color)
+    # cv2.putText(image, text, position , font, font_scale, color, thickness, lineType=cv2.LINE_AA)
+    # Save the output image
+    result_image = cv2.cvtColor(np.array(pillow_img), cv2.COLOR_RGB2BGR)
+    cv2.imwrite(output_path, result_image)
     print(f"Text added to the image and saved at: {output_path}")
 
 def paste_img(background_path, overlay_path, output_path, position=(0, 0)):
@@ -60,17 +70,19 @@ position_cutout = (0,0)               # Top-left position for the overlay
 
 # text settings
 text = "PYTHON"  # Text to add
-position = (3, 17+225)  # Position (x, y) for the text
-font_scale = 3 
-color = (0, 255, 0)  # Green text
-thickness = 3  
+# position = (400,900)  # Position (x, y) for the text
+font_scale = 70  # Font scale
+color = (255, 255, 255)  # Green text
+# color = (12,0,0)
+thickness = 15  # Thickness of the text
 
 # image settings
-orignial_img = "files/image.png"  # Path to the input image
+orignial_img = "files/img_man.png"  # Path to the input image
 cut_out_img = "outputtxt.png"  # Output image path
 text_img = "output_txt.png"
 final_output = "final_output.png"
 
-cut_out(orignial_img, cut_out_img)
+details = cut_out(orignial_img, cut_out_img)
+position = (details[0]/2, 0.5 * details[3])
 add_text(orignial_img, text_img, text, position, font_scale, color, thickness)
 paste_img(text_img, cut_out_img, final_output, position_cutout)
