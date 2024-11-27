@@ -71,11 +71,8 @@ Contributions are welcome! If you'd like to improve this project:
 3. Make your changes and commit them.
 4. Open a pull request.
 
-## 📜 License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
 ## 📧 Contact
 If you have any questions or suggestions, feel free to reach out:
-- **Your Name**
-- [Your Email](mailto:your.email@example.com)
-- [Your LinkedIn Profile](https://linkedin.com/in/your-profile)
+- **Arka Saha**
+- [Your Email](mailto:i.am.arka.saha@gmail.com)
+- [Your LinkedIn Profile](http://linkedin.com/in/arka-saha2707/)
