@@ -17,9 +17,14 @@ A Python-based tool that creatively places user-provided text behind a person in
 ## 📸 Example
 ### Input
 An image of a person with no text.  
+![Example Output](img/pic.jpg)
+<br>
+*(Sample Image)*
 ### Output
 The same image with user-provided text placed behind the person.  
-![Example Output](example-output.jpg) *(Replace with your example image)*  
+![Example Output](img/output.png) 
+<br>
+*(Sample Image)*  
 
 ## 🚀 How It Works
 1. Detects the person in the image using **MediaPipe**.
