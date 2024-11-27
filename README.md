@@ -42,7 +42,7 @@ The same image with user-provided text placed behind the person.
 ## 🛠️ Installation
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your-username/text-behind-subject.git
+   git clone https://github.com/your-username/peek-a-text.git
    cd text-behind-subject
    ```
 2. Install dependencies:
