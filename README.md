@@ -1,5 +1,5 @@
 
-# Text-Behind-Subject Tool
+# Peek-A-Text Tool
 
 A Python-based tool that creatively places user-provided text behind a person in an image. This tool utilizes **OpenCV**, **Pillow**, **NumPy**, and **MediaPipe** to make thumbnails, posters, and other visual designs stand out. 
 
